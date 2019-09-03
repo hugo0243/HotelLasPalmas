@@ -1,0 +1,13 @@
+footer {
+    /*bgcra+bt++cra+fz0.8rem+fw500+p0.4-1em+tac+w100%*/
+    background-color: rgba(0, 0, 0, 0.6);
+    border-top: 0.5em solid rgba(0, 210, 100, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 0.8rem;
+    font-weight: 500;
+    position: absolute;
+   
+  /*   padding: 0.4em 1em; */
+    text-align: center;
+    width: 100%;
+}
