@@ -1,0 +1,14 @@
+ .abrir-modal{
+    background-color: rgba(0,0,0,0.5);
+  /*    position: fixed;
+    top:0px;
+    left: 0px;  */ 
+    min-width: 100vw;
+    min-height: 100vh;
+    height: 100%;
+     z-index: 1000; 
+} 
+
+.modal{
+ 
+}

@@ -47,3 +47,8 @@
      .contenedor_tabla tbody tr:last-of-type{
          border-bottom: 1px solid #009879;
      }
+
+     .btn{
+         background-color: #009879;
+         color: white;
+     }

@@ -1,69 +1,91 @@
+<app-detalle-habitacion *ngIf="habitacionSeleccionada" [habitacion]="habitacionSeleccionada"></app-detalle-habitacion>
+
 <div class="contenedor_tabla">
 
     <div class="card text-center contenedor_tabs">
-        <div class="card-header">
+        <div class="card-header"> 
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" href="">Todas</a>
+                    <a class="nav-link  active" href="#reservas" role="tab" data-toggle="tab">Reservas</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link active" href="">Reservadas</a>
+                        <a class="nav-link" (click)="showHabitacionesDisponibles()" href="#disponibles" role="tab" data-toggle="tab">Habitaciones Disponibles</a>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link active" href="">Disponibles</a>
+                            <a class="nav-link" href="#todas" role="tab" data-toggle="tab">Todas las Habitaciones</a>
                         </li>
             </ul>
-        </div>
-        <div class="card-body">
+         </div> 
+         <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active" id="reservas">
+                <div class="card-body">
 
-        <table class="habitaciones_tabla">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th># Habitación</th>
-                    <th>Disponible</th>
-                    <th>Info</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td> Número</td>
-                    <td>Número</td>
-                    <td>Número</td>
-                    <td>Número</td>
-                </tr>
-                <tr>
-                        <td>Número</td>
-                        <td>Número</td>
-                        <td>Número</td>
-                        <td>Número</td>
-                    </tr>
-                    <tr>
-                            <td>Número</td>
-                            <td>Número</td>
-                            <td>Número</td>
-                            <td>Número</td>
-                        </tr>
-                        <tr>
-                                <td>Número</td>
-                                <td>Número</td>
+                    <table class="habitaciones_tabla">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th># Habitación</th>
+                                <th>Disponible</th>
+                                <th>Info</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let habitacion of habitaciones; let i=index">
+                                <td>{{habitacion.id_habitacion}}</td>
+                                <td>{{habitacion.num_habitacion}}</td>
                                 <td>Número</td>
                                 <td>Número</td>
                             </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane  fade" id="disponibles">
+                <div class="card-body">
+
+                    <table class="habitaciones_tabla">
+                        <thead>
                             <tr>
-                                    <td>Número</td>
-                                    <td>Número</td>
-                                    <td>Número</td>
-                                    <td>Número</td>
-                                </tr>
-                                <tr>
-                                        <td>Número</td>
-                                        <td>Número</td>
-                                        <td>Número</td>
-                                        <td>Número</td>
-                                    </tr>
-            </tbody>
-        </table>
-    </div>
+                                <th>ID</th>
+                                <th># Habitación</th>
+                                <th>Estado</th>
+                                <th>Info</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let habitacion of habitacionesDisponibles; let i=index">
+                                <td>{{habitacion.id_habitacion}}</td>
+                                <td>{{habitacion.num_habitacion}}</td>
+                                <td>{{habitacion.estado}}</td>
+                                <td>Número</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane  fade" id="todas">
+                <div class="card-body">
+
+                    <table class="habitaciones_tabla">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th># Habitación</th>
+                                <th>Estado</th>
+                                <th>Info</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let habitacion of habitaciones; let i=index">
+                                <td>{{habitacion.id_habitacion}}</td>
+                                <td>{{habitacion.num_habitacion}}</td>
+                                <td>{{habitacion.estado}}</td>
+                                <td><button class="btn btn-rounded" type="button" (click)="abrirModal(habitacion)">Detalle</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+         </div>
     </div>
     </div>
