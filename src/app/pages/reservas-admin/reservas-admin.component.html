@@ -1,0 +1,212 @@
+<div class="container contenedor_form">
+
+<div class="card text-center c">
+    <div class="card-header form_header">
+      <h3>Reservas</h3>
+    </div>
+    <div class="card-body">
+        <form>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Nombre Cliente:</label>
+                <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre Cliente">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Primer Apellido:</label>
+                <input type="text" class="form-control" id="inputPassword4" placeholder="Primer Apellido">
+            </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <br>
+                    <button class="btn btn-secondary btnInfo_cliente" 
+                     data-target="#exampleModalScrollable"
+                     data-toggle="modal">
+                        Info adicional cliente
+                    </button>
+                </div>
+                <div class="form-group col-md-6">
+                        <label for="inputPassword4">Número Documento:</label>
+                        <input type="text" class="form-control" id="inputPassword4" placeholder="Documento">
+                    </div>
+              
+            </div>
+         
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="">Fecha Ingreso:</label>
+                <div class="input-group">
+                  <input class="form-control" placeholder="yyyy-mm-dd"
+                         name="dp" [(ngModel)]="fechaIngreso" ngbDatepicker #d1="ngbDatepicker">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                    <label for="">Fecha Salida:</label>
+                    <div class="input-group">
+                      <input class="form-control" placeholder="yyyy-mm-dd"
+                             name="dp" [(ngModel)]="fechaSalida" ngbDatepicker #d2="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+           
+          
+            <div class="form-row">
+                   <!--  <div class="col-md-2"></div> -->
+              <div class="form-group col-md-8">
+                <label for="observaciones">Observaciones</label>
+                <textarea type="text-area" class="form-control" id="observaciones" rows="5" cols="200"> </textarea>
+              </div>
+              <div class="form-group col-md-4">
+                    <br>
+                    <button class="btn btn-secondary btnInfo_cliente" 
+                     data-target="#modalAcompanantes"
+                     data-toggle="modal">
+                        Acompañantes
+                    </button>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary">Sign in</button>
+          </form>
+        
+    </div>
+  </div>
+</div>
+
+      
+      <!-- Modal -->
+      <div class="modal fade " id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header form_header">
+              <h5 class="modal-title" id="exampleModalScrollableTitle">Información Adicional CLiente</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    <form class="modal_form_cliente">
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="inputEmail4">Segundo Apellido:</label>
+                                <input type="text" class="form-control" id="inputEmail4" placeholder="Segundo Apellido">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="inputPassword4">Dirección:</label>
+                                <input type="text" class="form-control" id="inputPassword4" placeholder="Dirección">
+                            </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    
+                                    <label for="inputPassword4">Teléfono:</label>
+                                    <input type="number" class="form-control" id="inputPassword4" placeholder="Teléfono">
+                                </div>
+                                <div class="form-group col-md-6">
+                                        <label for="inputPassword4">E-mail:</label>
+                                        <input type="email" class="form-control" id="inputPassword4" placeholder="E-mail">
+                                    </div>
+                              
+                            </div>
+                     
+                          </form>
+                        
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary btnInfo_cliente">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+        
+      <!-- Modal  Acompañantes-->
+      <div class="modal fade " id="modalAcompanantes" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+              <div class="modal-content">
+                <div class="modal-header form_header">
+                  <h5 class="modal-title" id="exampleModalScrollableTitle">Información Acompañantes</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                        <form class="modal_form_cliente">
+                              
+                                <div class="form-row">
+                                       <!--  <div class="col-md-2"></div> -->
+                                  <div class="form-group col-md-5">
+                                    <label for="acompanantes">Número de acompañantes</label>
+                                    <input type="number"  name="numAcompanantes" class="form-control" id="acompanantes" [(ngModel)]="numAcompanantes">
+                                  </div>
+                                  <div class="form-group col-md3">
+                                      <br>
+                                        <button [disabled]="numAcompanantes < 0 " type="button" class="btn btn-primary" (click)="showAcompanantesInfo()">Info Acompañantes</button>
+                                  </div>
+          
+                                </div>
+    
+                            <!-- <ng-template #name> -->
+                                    <div class="form-row formModel_row_acompanante" *ngFor="let acompanante of acompanantes; let i=index">
+
+
+
+
+                                            <div class="card col-md-12">
+                                                    <div class="card-header form_header">
+                                                      
+                                                
+                                                
+                                                                    <h2 class="">Acompañante {{i+1}}</h2>
+                                                  <!--                   <input type="text" class="form-control" id="inputEmail4" placeholder="Segundo Apellido"> -->
+                                                                
+
+                                                    </div>
+                                                    <div class="card-body form-row">
+                                                            <div class="form-group col-md-4">
+                                                                    <label for="nombreAcom">Nombre:</label>
+                                                                    <input type="text" class="form-control" id="nombreAcom" placeholder="Nombre">
+                                                                </div>
+                                                            
+                                                                  <div class="form-group col-md-4">
+                                                                    <label for="apellidoAcom">Apellido:</label>
+                                                                    <input type="text" class="form-control" id="apellidoAcom" placeholder="Apellido">
+                                                                </div>
+                                                                <div class="form-group col-md-4">
+                                                                      <label for="documentoAcom">Documento:</label>
+                                                                      <input type="text" class="form-control" id="documentoAcom" placeholder="Documento">
+                                                                  </div>
+                                                                  <hr>
+                                                              </div>
+
+
+                                                    </div>
+                                                  </div>
+
+
+
+                                        
+                                            
+    
+                           <!--  </ng-template> -->
+                            
+                         
+                              </form>
+                            
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary btnInfo_cliente">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>

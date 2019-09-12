@@ -1,4 +1,5 @@
 <app-detalle-habitacion *ngIf="habitacionSeleccionada" [habitacion]="habitacionSeleccionada"></app-detalle-habitacion>
+<app-detalle-reserva *ngIf="reservaSeleccionada" [reserva]="reservaSeleccionada"></app-detalle-reserva>
 
 <div class="contenedor_tabla">
 
@@ -25,16 +26,18 @@
                             <tr>
                                 <th>ID</th>
                                 <th># Habitación</th>
-                                <th>Disponible</th>
+                                <th>Cliente</th>
+                                <th>Fecha Reserva</th>
                                 <th>Info</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let habitacion of habitaciones; let i=index">
-                                <td>{{habitacion.id_habitacion}}</td>
-                                <td>{{habitacion.num_habitacion}}</td>
-                                <td>Número</td>
-                                <td>Número</td>
+                            <tr *ngFor="let reserva of reservas; let i=index">
+                                <td>{{reserva.id_reserva}}</td>
+                                <td>{{reserva.idHabitacion.num_habitacion}}</td>
+                                <td>{{reserva.id_cliente.nombre}} {{reserva.id_cliente.primer_apellido}}</td>
+                                <td>{{reserva.fechaReserva | date:'medium'}}</td>
+                                <td> <button (click)="abrirModalReserva(reserva)" class="btn btn-rounded" type="button">Detalle</button> </td>
                             </tr>
                         </tbody>
                     </table>

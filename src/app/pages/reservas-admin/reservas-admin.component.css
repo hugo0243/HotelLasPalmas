@@ -1,0 +1,38 @@
+.contenedor_form{
+/*     background-color: blue; */
+    max-width: 800px;
+    margin-top: 5rem ;
+    padding: 1.5rem;
+    max-height: 700px;
+}
+
+.form_header
+{
+  /*   background-color: #009879; */
+  background-color:	seagreen;
+    color: white;
+}
+
+.c{
+    max-height: 600px;
+}
+
+.btnInfo_cliente{
+    background-color:  seagreen;
+    border: 1px seagreen solid;
+}
+
+.modal_form_cliente{
+
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+.formModel_row_acompanante{
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+
+/* .formModel_row_acompanante > .form-group{
+    width: 50px;
+} */

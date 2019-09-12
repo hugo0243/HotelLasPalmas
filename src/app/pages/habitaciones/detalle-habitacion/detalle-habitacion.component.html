@@ -12,6 +12,7 @@
           </div>
           <div class="modal-body">
             <p>{{habitacion.descripcion}}</p>
+            <img [src]="habitacion.ruta_imagen" alt="" srcset="">
           </div>
           <div class="modal-footer">
             <button (click)="cerrarModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
