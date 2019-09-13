@@ -1,8 +1,21 @@
 
 export class Acompanante{
 
-    constructor(public nombre:string, public segundo_nombre:string,
-        public primer_apellido:string, public segundo_apellido:string,
-        public tipo_documento: string, public numero_documento:string,
-         public id_cliente: number){}
+   /*      private static id = 1;
+        private idAcom:number; */
+        nombre:string;
+        segundo_nombre:string; // puede ser null
+        primer_apellido:string;
+        segundo_apellido:string; //puede ser null
+        tipo_documento: string; // puede ser null
+        numero_documento:string;
+        id_cliente: number;
+
+        constructor(){
+               /*  this.idAcom = Acompanante.id++; */
+        }
+
+      /*  getId(): number {
+                return this.idAcom;
+        } */
 }
