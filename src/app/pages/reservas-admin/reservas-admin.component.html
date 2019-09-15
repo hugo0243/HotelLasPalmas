@@ -9,11 +9,11 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="inputEmail4">Nombre Cliente:</label>
-                <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre Cliente">
+                <input type="text" class="form-control" id="inputEmail4" name="primNomCliente" [(ngModel)]="reserva.id_cliente.nombre" placeholder="Nombre Cliente">
               </div>
               <div class="form-group col-md-6">
                 <label for="inputPassword4">Primer Apellido:</label>
-                <input type="text" class="form-control" id="inputPassword4" placeholder="Primer Apellido">
+                <input type="text" class="form-control" id="inputPassword4" name="primApeCliente" [(ngModel)]="reserva.id_cliente.primer_apellido" placeholder="Primer Apellido">
             </div>
             </div>
             <div class="form-row">
@@ -27,7 +27,7 @@
                 </div>
                 <div class="form-group col-md-6">
                         <label for="inputPassword4">Número Documento:</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="Documento">
+                        <input type="text" class="form-control" id="inputPassword4" name="documCLiente" [(ngModel)]="reserva.id_cliente.numdocumento" placeholder="Documento">
                     </div>
               
             </div>
@@ -37,7 +37,7 @@
                 <label for="">Fecha Ingreso:</label>
                 <div class="input-group">
                   <input class="form-control" placeholder="yyyy-mm-dd"
-                         name="dp" (dateSelect)="rellenaHabitacionSegunFechas($event)" [(ngModel)]="fechaIngreso" ngbDatepicker #d1="ngbDatepicker">
+                         name="dp1" (dateSelect)="rellenaHabitacionSegunFechas($event)" [(ngModel)]="fechaIngreso" ngbDatepicker #d1="ngbDatepicker">
                   <div class="input-group-append">
                     <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
                   </div>
@@ -47,7 +47,7 @@
                     <label for="">Fecha Salida:</label>
                     <div class="input-group">
                       <input class="form-control" placeholder="yyyy-mm-dd"
-                             name="dp" (dateSelect)="rellenaHabitacionSegunFechas($event)"  [(ngModel)]="fechaSalida" ngbDatepicker #d2="ngbDatepicker">
+                             name="dp2" (dateSelect)="rellenaHabitacionSegunFechas($event)"  [(ngModel)]="fechaSalida" ngbDatepicker #d2="ngbDatepicker">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
                       </div>
@@ -60,7 +60,7 @@
                    <!--  <div class="col-md-2"></div> -->
               <div class="form-group col-md-8">
                 <label for="observaciones">Observaciones</label>
-                <textarea type="text-area" class="form-control" id="observaciones" rows="5" cols="200"> </textarea>
+                <textarea type="text-area" class="form-control" name="observaciones" [(ngModel)]="reserva.observacion" id="observaciones" rows="5" cols="200"> </textarea>
               </div>
               <div class="form-group col-md-4">
                     <br>
@@ -87,7 +87,8 @@
                         <div ngbDropdown class="d-inline-block">
                             <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle># Habitación</button>
                             <div id="selectHabitacion" ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                              <button ngbDropdownItem *ngFor="let habitacion of rellenoHabitaciones">
+                              <button (click)="onSelectedRoom($event)" ngbDropdownItem 
+                              *ngFor="let habitacion of rellenoHabitaciones; let i = index" id="{{i+1}}">
                                 {{habitacion}}
                               </button>
                           <!--     <button ngbDropdownItem>B</button>
@@ -100,7 +101,7 @@
                       </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary">Sign in</button>
+            <button type="button" (click)="onRegistrarReserva()" class="btn btn-primary">Registrar Reserva</button>
           </form>
         
     </div>
@@ -123,22 +124,22 @@
                             <div class="form-row">
                               <div class="form-group col-md-6">
                                 <label for="inputEmail4">Segundo Apellido:</label>
-                                <input type="text" class="form-control" id="inputEmail4" name="segApeCli" [(ngModel)]="cliente.segundo_apellido" placeholder="Segundo Apellido">
+                                <input type="text" class="form-control" id="inputEmail4" name="segApeCli" [(ngModel)]="reserva.id_cliente.segundo_apellido" placeholder="Segundo Apellido">
                               </div>
                               <div class="form-group col-md-6">
                                 <label for="inputPassword4">Dirección:</label>
-                                <input type="text" class="form-control" id="inputPassword4" name="direccionCli" [(ngModel)]="cliente.direccion" placeholder="Dirección">
+                                <input type="text" class="form-control" id="inputPassword4" name="direccionCli" [(ngModel)]="reserva.id_cliente.direccion" placeholder="Dirección">
                             </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     
                                     <label for="inputPassword4">Teléfono:</label>
-                                    <input type="number" class="form-control" id="inputPassword4" name="telCli" [(ngModel)]="cliente.telefono" placeholder="Teléfono">
+                                    <input type="number" class="form-control" id="inputPassword4" name="telCli" [(ngModel)]="reserva.id_cliente.telefono" placeholder="Teléfono">
                                 </div>
                                 <div class="form-group col-md-6">
                                         <label for="inputPassword4">E-mail:</label>
-                                        <input type="email" class="form-control" id="inputPassword4" name="emailCli" [(ngModel)]="cliente.email" placeholder="E-mail">
+                                        <input type="email" class="form-control" id="inputPassword4" name="emailCli" [(ngModel)]="reserva.id_cliente.email" placeholder="E-mail">
                                     </div>
                               
                             </div>
@@ -147,8 +148,8 @@
                         
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" (click)="cleanData()">Close</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary" (click)="cleanData()">Vaciar Campos</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
               <button type="button" class="btn btn-primary btnInfo_cliente" (click)="saveInfoModalCliente()">Guardar Información</button>
             </div>
           </div>
@@ -209,7 +210,7 @@
                                                             
                                                                   <div class="form-group col-md-4">
                                                                     <label for="apellidoAcom">Apellido:</label>
-                                                                    <input type="text" class="form-control inp" [(ngModel)]="acompanante.primer_apellido" name="acomPrimApe" id="apellidoAcom{{i}}" placeholder="Apellido">
+                                                                    <input type="text" class="form-control inp" required [(ngModel)]="acompanante.primer_apellido" name="acomPrimApe" id="apellidoAcom{{i}}" placeholder="Apellido">
                                                                 </div>
                                                                 <div class="form-group col-md-4">
                                                                       <label for="documentoAcom">Documento:</label>
@@ -234,7 +235,7 @@
                             
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button id="btnCerrarModalAcom" type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                   <button type="button" class="btn btn-primary btnInfo_cliente" (click)="saveInfoAcompanantes()">Save changes</button>
                 </div>
               </div>

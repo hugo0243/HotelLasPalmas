@@ -5,6 +5,7 @@ import { ModalHabitacionService } from 'src/app/services/modal-habitacion.servic
 import { Reserva } from 'src/app/modelos/Reserva';
 import { ReservaService } from 'src/app/services/reserva.service';
 import { ModalReservaService } from 'src/app/services/modal-reserva.service';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -18,13 +19,15 @@ export class HabitacionesComponent implements OnInit {
   habitacionesDisponibles: Habitacion[];
   habitacionSeleccionada: Habitacion;
 
+
   reservas: Reserva[];
   reservaSeleccionada: Reserva;
 
    constructor(private habitacionService: HabitacionService
     , private modalHabitacionService: ModalHabitacionService,
     private reservasService: ReservaService,
-    private modalReservaService: ModalReservaService) { }
+    private modalReservaService: ModalReservaService,
+    private activatedRoute: ActivatedRoute) { }
 
 
   ngOnInit() {
@@ -46,8 +49,8 @@ this.habitacionService.getHabitaciones()
 this.reservasService.showReservas()
 .subscribe(reservas => {
   this.reservas = reservas;
- 
-  this.reservas.map((r,i)=>r.fechaReserva = new Date(reservas[i].fechaReserva));
+  console.log(this.reservas);
+  //this.reservas.map((r,i)=>r.fechaReserva = new Date(reservas[i].fechaReserva));
 /*   console.log(reservas[1].fechaReserva); */
 });
   }
@@ -67,4 +70,5 @@ this.reservasService.showReservas()
     this.reservaSeleccionada = reserva;
     this.modalReservaService.abrirModalReserva();
   }
+
 }

@@ -1,8 +1,20 @@
 <app-detalle-habitacion *ngIf="habitacionSeleccionada" [habitacion]="habitacionSeleccionada"></app-detalle-habitacion>
 <app-detalle-reserva *ngIf="reservaSeleccionada" [reserva]="reservaSeleccionada"></app-detalle-reserva>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="contenedor_tabla">
-
+ 
     <div class="card text-center contenedor_tabs">
         <div class="card-header"> 
             <ul class="nav nav-tabs card-header-tabs">
@@ -29,15 +41,17 @@
                                 <th>Cliente</th>
                                 <th>Fecha Reserva</th>
                                 <th>Info</th>
+                                <th>Editar</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let reserva of reservas; let i=index">
-                                <td>{{reserva.id_reserva}}</td>
+                                <td>{{reserva.id_reserva}}kkkk</td>
                                 <td>{{reserva.idHabitacion.num_habitacion}}</td>
                                 <td>{{reserva.id_cliente.nombre}} {{reserva.id_cliente.primer_apellido}}</td>
                                 <td>{{reserva.fechaReserva | date:'medium'}}</td>
                                 <td> <button (click)="abrirModalReserva(reserva)" class="btn btn-rounded" type="button">Detalle</button> </td>
+                                <td><button [routerLink]="['/admin/reserva', reserva.id_reserva]" class="btn btn-rounded btn-primary" type="button">Cancelar/Eliminar</button></td>
                             </tr>
                         </tbody>
                     </table>

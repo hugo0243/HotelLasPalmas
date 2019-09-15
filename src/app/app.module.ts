@@ -27,8 +27,8 @@ const routes: Routes =[
   {path: 'habitaciones', component : HabitacionesComponent},
   {path: 'cliente/habitaciones', component : HabitacionesClienteComponent},
   {path: 'detalles', component: DetalleHabitacionComponent},
-  {path: 'admin/reserva', component:ReservasAdminComponent}
-
+  {path: 'admin/reserva', component:ReservasAdminComponent},
+  {path: 'admin/reserva/:id',component:ReservasAdminComponent}
 ];
 
 @NgModule({
