@@ -5,9 +5,10 @@ import { Cliente } from 'src/app/modelos/Cliente';
 import { Reserva } from 'src/app/modelos/Reserva';
 import { ReservaService } from 'src/app/services/reserva.service';
 import { Habitacion } from 'src/app/modelos/Habitacion';
-import {ActivatedRoute} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { NgbDateStructAdapter } from '@ng-bootstrap/ng-bootstrap/datepicker/adapters/ngb-date-adapter';
+import { getCurrencySymbol } from '@angular/common';
 
 @Component({
   selector: 'app-reservas-admin',
@@ -31,7 +32,7 @@ export class ReservasAdminComponent implements OnInit {
 
   rellenoHabitaciones: string[] = [];
 
-  constructor(private reservaService: ReservaService, private activatedRoute: ActivatedRoute) {
+  constructor(private reservaService: ReservaService, private activatedRoute: ActivatedRoute, private router: Router) {
     /*   this.cliente = new Cliente(); */
     this.reserva = new Reserva();
     this.reserva.id_cliente = new Cliente();
@@ -40,14 +41,14 @@ export class ReservasAdminComponent implements OnInit {
   }
 
   ngOnInit() {
-  this.cargarReserva();
-  
-  // carga las reservas previas para que no se puedan escoger reservas
-  // en fechas que ya tiene reservas
+    this.cargarReserva();
+
+    // carga las reservas previas para que no se puedan escoger reservas
+    // en fechas que ya tiene reservas
     this.reservaService.showReservas().subscribe(reservas => {
       this.reservasPrevias = reservas;
       console.log(this.reservasPrevias);
-    }); 
+    });
   }
 
   saveInfoModalCliente() {
@@ -74,12 +75,12 @@ export class ReservasAdminComponent implements OnInit {
         const fsrp = new Date(reservaPrevia.fechaSalida);
 
         if (fi >= firp && fi <= fsrp) {
-            this.rellenoHabitaciones
-              .splice(i++, 1, reservaPrevia.idHabitacion.num_habitacion);
-         /*  this.rellenoHabitaciones
-            .splice(i++, this.rellenoHabitaciones.length - i, reservaPrevia.idHabitacion.num_habitacion); */
-              this.rellenoHabitaciones
-                .splice(i, this.rellenoHabitaciones.length - i);
+          this.rellenoHabitaciones
+            .splice(i++, 1, reservaPrevia.idHabitacion.num_habitacion);
+          /*  this.rellenoHabitaciones
+             .splice(i++, this.rellenoHabitaciones.length - i, reservaPrevia.idHabitacion.num_habitacion); */
+          this.rellenoHabitaciones
+            .splice(i, this.rellenoHabitaciones.length - i);
           incluye = true;
         }
       }
@@ -170,14 +171,65 @@ export class ReservasAdminComponent implements OnInit {
   }
 
   onRegistrarReserva() {
-    this.reserva.estado = 'reservada';
-    this.reserva.fechaIngreso = new Date(this.fechaIngreso.year, this.fechaIngreso.month - 1, this.fechaIngreso.day);
-    this.reserva.fechaSalida = new Date(this.fechaSalida.year, this.fechaSalida.month - 1, this.fechaSalida.day);
+
+    Swal.fire({
+      title: 'Desea confirmar esta reserva?',
+      text: 'Podrá actualizarla nuevamente',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: 'green',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, registrar reserva'
+    }).then(result => {
+      if (result.value) {
+    /*     this.reserva.estado = 'reservada';
+        this.reserva.fechaIngreso = new Date(this.fechaIngreso.year, this.fechaIngreso.month - 1, this.fechaIngreso.day);
+        this.reserva.fechaSalida = new Date(this.fechaSalida.year, this.fechaSalida.month - 1, this.fechaSalida.day);
+        console.log(this.reserva);
+        this.reservaService.createReserva(this.reserva)
+          .subscribe(response => {
+            console.log(response);
+          }); */
+
+          Swal.fire({
+            title: 'Reserva hecha con exito!',
+            type: 'success'
+          });
+      }
+    });
+    /*    this.reserva.estado = 'reservada';
+       this.reserva.fechaIngreso = new Date(this.fechaIngreso.year, this.fechaIngreso.month - 1, this.fechaIngreso.day);
+       this.reserva.fechaSalida = new Date(this.fechaSalida.year, this.fechaSalida.month - 1, this.fechaSalida.day);
+       console.log(this.reserva);
+       this.reservaService.createReserva(this.reserva)
+         .subscribe(response => {
+           console.log(response);
+         }); */
+  }
+
+  onEditarReserva() {
     console.log(this.reserva);
-    this.reservaService.createReserva(this.reserva)
-      .subscribe(response => {
-        console.log(response);
-      });
+    this.reservaService.updateReserva(this.reserva).subscribe(reserva => {
+      this.router.navigate(['/habitaciones']);
+      Swal.fire('Reserva actualizada', `reserva ${reserva.id_reserva} actualizada con exito`, 'success');
+    });
+  }
+
+  onDeleteReserva(reserva: Reserva) {
+    Swal.fire({
+      title: 'Desea cancelar esta reserva?',
+      text: 'Se borrará su regitro',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: 'green',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, cancelar reserva'
+    }).then(response => {
+      if (response.value) {
+        this.reservaService.deleteReserva(reserva.id_reserva);
+        Swal.fire('eliminado con exito');
+      }
+    });
   }
 
   cleanData(): void {
@@ -193,24 +245,24 @@ export class ReservasAdminComponent implements OnInit {
       let id = params['id'];
 
       //pregunta si existe el id de la reserva
-      if(id) {
+      if (id) {
         this.reservaService.getReserva(id).subscribe(reserva => {
           this.reserva = reserva;
-          console.log(this.reserva.fechaIngreso,this.reserva.fechaSalida);
-         /*  console.log(new Date(this.reserva.fechaIngreso).getFullYear()); */
-         this.fechaIngreso = new NgbDate(new Date(this.reserva.fechaIngreso).getFullYear(),
-           new Date(this.reserva.fechaIngreso).getMonth(),
-           new Date(this.reserva.fechaIngreso).getDate());
+          console.log(this.reserva.fechaIngreso, this.reserva.fechaSalida);
+          /*  console.log(new Date(this.reserva.fechaIngreso).getFullYear()); */
+          this.fechaIngreso = new NgbDate(new Date(this.reserva.fechaIngreso).getFullYear(),
+            new Date(this.reserva.fechaIngreso).getMonth(),
+            new Date(this.reserva.fechaIngreso).getDate());
 
 
-           this.fechaSalida = new NgbDate(new Date(this.reserva.fechaSalida).getFullYear(),
-           new Date(this.reserva.fechaSalida).getMonth(),
-           new Date(this.reserva.fechaSalida).getDate());
+          this.fechaSalida = new NgbDate(new Date(this.reserva.fechaSalida).getFullYear(),
+            new Date(this.reserva.fechaSalida).getMonth(),
+            new Date(this.reserva.fechaSalida).getDate());
         });
       }
     });
   }
 
 
-  
+
 }
