@@ -12,9 +12,9 @@ export class HabitacionService {
   habitaciones : Habitacion[] ;
   h: Habitacion;
 
- /*  private URL: string = 'http://localhost:8080/hotel-campestre/api/habitaciones'; */
+  private URL: string = 'http://localhost:8080/hotel-campestre/api/habitaciones';
 
- private URL: string = 'http://192.168.0.15:8080/hotel-campestre/api/habitaciones';
+/*  private URL: string = 'http://192.168.0.15:8080/hotel-campestre/api/habitaciones'; */
 
   constructor(private http: HttpClient) { }
 

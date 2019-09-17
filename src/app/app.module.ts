@@ -36,7 +36,8 @@ const routes: Routes =[
   {path: 'detalles', component: DetalleHabitacionComponent},
   {path: 'admin/reserva', component:ReservasAdminComponent},
   {path: 'admin/reserva/:id',component:ReservasAdminComponent},
-  {path: 'reservas/page/:page', component: HabitacionesComponent}
+  {path: 'reservas/page/:page', component: HabitacionesComponent},
+  {path: '**', pathMatch: 'full', redirectTo: '/home'}
 ];
 
 @NgModule({

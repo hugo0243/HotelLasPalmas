@@ -96,23 +96,7 @@ export class ReservasAdminComponent implements OnInit {
   }
 
   onSelectedRoom(event: any) {
-    /*   console.log(this.reserva.idHabitacion); */
-    switch (event.target.textContent.trim()) {
-      case 'A': this.reserva.idHabitacion.id_habitacion = 1;
-        break;
-      case 'B': this.reserva.idHabitacion.id_habitacion = 2;
-        break;
-      case 'C': this.reserva.idHabitacion.id_habitacion = 3;
-        break;
-      case 'D': this.reserva.idHabitacion.id_habitacion = 4;
-        break;
-      case 'E': this.reserva.idHabitacion.id_habitacion = 5;
-        break;
-      case 'F': this.reserva.idHabitacion.id_habitacion = 6;
-        break;
-    }
-
-    /*    console.log(this.reserva.idHabitacion); */
+    this.reserva.idHabitacion.id_habitacion = event.target.id;
   }
 
   saveInfoReserva() {
@@ -182,14 +166,14 @@ export class ReservasAdminComponent implements OnInit {
       confirmButtonText: 'Si, registrar reserva'
     }).then(result => {
       if (result.value) {
-    /*     this.reserva.estado = 'reservada';
+        this.reserva.estado = 'reservada';
         this.reserva.fechaIngreso = new Date(this.fechaIngreso.year, this.fechaIngreso.month - 1, this.fechaIngreso.day);
         this.reserva.fechaSalida = new Date(this.fechaSalida.year, this.fechaSalida.month - 1, this.fechaSalida.day);
         console.log(this.reserva);
         this.reservaService.createReserva(this.reserva)
           .subscribe(response => {
             console.log(response);
-          }); */
+          });
 
           Swal.fire({
             title: 'Reserva hecha con exito!',
