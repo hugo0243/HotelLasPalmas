@@ -11,8 +11,8 @@ import { tap } from 'rxjs/operators';
 export class ReservaService {
 
   private reservas: Reserva[];
-  private URL = 'http://localhost:8080/hotel-campestre/api/reservas';
-/* private URL: string = 'http://192.168.0.15:8080/hotel-campestre/api/reservas'; */
+/*   private URL = 'http://localhost:8080/hotel-campestre/api/reservas'; */
+private URL: string = 'http://192.168.0.15:8080/hotel-campestre/api/reservas';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
   constructor(private http: HttpClient) {

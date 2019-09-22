@@ -45,8 +45,9 @@
 }
 
 .lista_servicios li {
-    padding: 1px 29px;
+/*     padding: 1px 29px; */
   /*   background: linear-gradient(rgba(0, 210, 100, 1), rgba(0, 130, 60, 1)); */
+  width: 22vmin;
   background: rgba(0, 0, 0, 0.2);
     border-radius: 0.20em;
 border: 2px white solid;
@@ -62,7 +63,7 @@ justify-content: center;
 .lista_servicios li a{
     text-decoration: none;
     color: white;
-    font-size: 1.6em;
+    font-size: 2.8vmin;
 }
 
 .lista_servicios li:nth-child(2) {
@@ -75,12 +76,22 @@ main {
 }
 
 
-[class^="seccion"] {
+[class^="seccion_"] {
     display: flex;
-    height: 50vh;
+    min-height: 70vh;
     flex-wrap: wrap;
 }
 
+main article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8%;
+}
+
+
+/*Sección eventos*/
 .seccion_eventos 
 .eventos_img {
     flex-basis: 50%;
@@ -90,7 +101,37 @@ main {
 }
 
 .seccion_eventos article {
-    flex-basis: 50%
+    flex-basis: 50%;
+ 
+}
+
+
+/*Sección entretenimiento*/
+.seccion_entretenimiento article{
+    flex-basis: 50%;
+}
+
+.seccion_entretenimiento
+.entretenimiento_img{
+    flex-basis: 50%;
+    background-image: url('../../../assets/img/balcon.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+
+
+/*Sección piscina*/
+.seccion_piscina article {
+    flex-basis: 50%;
+}
+
+.seccion_piscina 
+.piscina_img {
+    width: 50%;
+    background-image:  url('../../../assets/img/piscinaExterior.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 
@@ -103,6 +144,53 @@ main {
     .lista_servicios li {
         flex-basis: 100%;
     }
+
+    main {
+       width: 100%;
+    }
+
+    .seccion_piscina article {
+        flex-basis: 100%;
+    }
+
+
+.piscina_img{
+    flex-basis: 70%;
+    height: 200px;
+    background-position: center center;
+    margin: 0 auto;
+}
+
+
+.seccion_entretenimiento article{
+    flex-basis: 100%;
+    order:  10;
+}
+
+.seccion_entretenimiento
+.entretenimiento_img{
+    flex-basis: 70%;
+    order: 11;
+    height: 200px;
+   margin: 0 auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+.seccion_eventos 
+.eventos_img {
+    flex-basis: 70%;
+    height: 200px;
+    margin: 0 auto;
+    order: 13;
+    background-position: center center;
+}
+
+.seccion_eventos article {
+    flex-basis: 100%;
+    order: 12;
+}
 }
 
 

@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  URLEndPoint = 'http://localhost:8080/hotel-campestre/api/empleado';
+ /*  URLEndPoint = 'http://localhost:8080/hotel-campestre/api/empleado'; */
+  private URLEndPoint: string = 'http://192.168.0.15:8080/hotel-campestre/api/empleado';
 
   constructor(private http: HttpClient) { }
 
