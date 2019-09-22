@@ -188,14 +188,14 @@ export class ReservasAdminComponent implements OnInit {
       confirmButtonText: 'Si, registrar reserva'
     }).then(result => {
       if (result.value) {
-    /*     this.reserva.estado = 'reservada';
+        this.reserva.estado = 'reservada';
         this.reserva.fechaIngreso = new Date(this.fechaIngreso.year, this.fechaIngreso.month - 1, this.fechaIngreso.day);
         this.reserva.fechaSalida = new Date(this.fechaSalida.year, this.fechaSalida.month - 1, this.fechaSalida.day);
         console.log(this.reserva);
         this.reservaService.createReserva(this.reserva)
           .subscribe(response => {
             console.log(response);
-          }); */
+          });
 
           Swal.fire({
             title: 'Reserva hecha con exito!',

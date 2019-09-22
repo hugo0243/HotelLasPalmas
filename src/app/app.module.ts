@@ -34,6 +34,7 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
 registerLocaleData(localeES, 'es');
 
 
+
 const routes: Routes =[
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
@@ -45,7 +46,8 @@ const routes: Routes =[
   {path: 'admin/reserva/:id',component:ReservasAdminComponent},
   {path: 'reservas/page/:page', component: HabitacionesComponent},
   {path: 'contactenos', component: ContactenosComponent},
-  {path: 'servicios', component: ServiciosComponent}
+  {path: 'servicios', component: ServiciosComponent},
+  {path: '**', pathMatch: 'full', redirectTo: '/home'}
 ];
 
 @NgModule({
@@ -63,7 +65,8 @@ const routes: Routes =[
     PaginatorComponent,
     TableFilteringComponent,
     ContactenosComponent,
-    ServiciosComponent
+    ServiciosComponent,
+    TableFilteringComponent
   ],
   imports: [
     BrowserModule,
