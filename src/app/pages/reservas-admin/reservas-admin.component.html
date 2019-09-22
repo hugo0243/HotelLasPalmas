@@ -91,6 +91,7 @@
                               *ngFor="let habitacion of rellenoHabitaciones; let i = index" id="{{i+1}}">
                                 {{habitacion}}
                               </button>
+                            
                           <!--     <button ngbDropdownItem>B</button>
                               <button ngbDropdownItem>C</button>
                               <button ngbDropdownItem>D</button>
@@ -98,10 +99,17 @@
                               <button ngbDropdownItem>F</button> -->
                             </div>
                           </div>
+                          
                       </div>
+                      <label *ngIf="selRoom" for="selectHabitacion" class="selRoom"   >{{selRoom}}</label>
                 </div>
             </div>
-            <button type="button" (click)="onRegistrarReserva()" class="btn btn-primary">Registrar Reserva</button>
+            <button type="button" (click)="onRegistrarReserva()" class="btn btn-primary" *ngIf="!reserva.id_reserva; else editarTemplate">Registrar Reserva</button>
+
+            <ng-template #editarTemplate>
+              <button type="button" (click)="onEditarReserva()" class="btn btn-primary">Editar Reserva</button>
+            </ng-template>
+            
           </form>
         
     </div>

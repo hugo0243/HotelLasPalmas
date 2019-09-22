@@ -1,0 +1,30 @@
+.header_fondo {
+    background-image: url('../../../assets/img/exterior.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 80vh;
+/*     min-height: 100%; */
+    display: flex;
+}
+
+.header {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1 {
+    color: white;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    width: 70%;
+    font-size: 7vmin;
+    text-align: center;
+    font-weight: 900;
+    /*       background-color: red; */
+     letter-spacing: 3px; 
+} 

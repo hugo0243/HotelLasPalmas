@@ -8,3 +8,32 @@
     height: 100%;
      z-index: 1000; 
 } 
+
+.modalHeader {
+
+  background-color:seagreen;
+  color: white;
+}
+
+.modalHeader h5:first-child{
+  margin-right: 60%;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.modalBody div {
+  margin-bottom: 20px;
+}
+
+.modalBody label {
+  font-weight: 800;
+  margin-right: 15px;
+}
+
+.modalBody div:nth-child(1) {
+ align-self: flex-end;
+}

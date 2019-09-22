@@ -1,0 +1,109 @@
+.header_fondo {
+    background-image: url('../../../assets/img/salon_eventos3.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 80vh;
+/*     min-height: 100%; */
+    display: flex;
+}
+
+.header {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1 {
+    color: white;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    width: 70%;
+    font-size: 11vmin;
+    text-align: center;
+    font-weight: 900;
+    /*       background-color: red; */
+     letter-spacing: 3px; 
+     margin-bottom: 40px;
+} 
+
+
+.lista_servicios {
+    display: flex; 
+    width: 40%;
+   justify-content: space-evenly;
+
+/*     background-color: red; */
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lista_servicios li {
+    padding: 1px 29px;
+  /*   background: linear-gradient(rgba(0, 210, 100, 1), rgba(0, 130, 60, 1)); */
+  background: rgba(0, 0, 0, 0.2);
+    border-radius: 0.20em;
+border: 2px white solid;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.lista_servicios li:hover {
+    background: rgba(0, 130, 60, 0.4);
+}
+
+.lista_servicios li a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.6em;
+}
+
+.lista_servicios li:nth-child(2) {
+    order: -1;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+[class^="seccion"] {
+    display: flex;
+    height: 50vh;
+    flex-wrap: wrap;
+}
+
+.seccion_eventos 
+.eventos_img {
+    flex-basis: 50%;
+    background-image: url('../../../assets/img/salon_eventos.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+
+.seccion_eventos article {
+    flex-basis: 50%
+}
+
+
+@media (max-width: 768px) {
+
+    .lista_servicios {
+        justify-content: center;
+    }
+
+    .lista_servicios li {
+        flex-basis: 100%;
+    }
+}
+
+
+
