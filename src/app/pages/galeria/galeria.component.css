@@ -1,0 +1,194 @@
+.header_fondo {
+    background-image: url('../../../assets/img/exterior.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 80vh;
+    /*     min-height: 100%; */
+    display: flex;
+}
+
+.header {
+    flex: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1 {
+    color: white;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    width: 70%;
+    font-size: 7vmin;
+    text-align: center;
+    font-weight: 900;
+    /*       background-color: red; */
+    letter-spacing: 3px;
+}
+
+section h2 {
+    font-size: 7vmin;
+    text-align: center;
+    font-weight: 900;
+    font-size: 25px;
+    font-family: sans-serif;
+    color: black;
+    padding: 10px;
+}
+
+section h3 {
+    font-size: 7vmin;
+    text-align: center;
+    font-weight: 900;
+    font-size: 25px;
+    font-family: sans-serif;
+    color: rgb(117, 116, 116);
+    padding: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+section {
+    /*pb3em*/
+    padding-bottom: 3em;
+}
+
+article {
+    /*w80%+maw75rem+m-auto+pos*/
+    width: 100%;
+    max-width: 75rem;
+    margin: auto;
+    position: relative;
+    background-image: url("../../../assets/img/fondo.jpg")
+}
+
+
+/*-------ESTILOS PARA LA LISTA----------------*/
+
+ul {
+    /*lstn+p0*/
+    list-style-type: none;
+    padding: 0;
+    margin-left: 35px;
+}
+
+ul li {
+    /*dib+pos-z0+trs*/
+    display: inline-block;
+    position: relative;
+    z-index: 0;
+    transition: all .4s;
+}
+
+ul li a {
+    /*bgc+bxsh:ra+m+p+pos+tdn+z0*/
+    background-color: #fff;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, .7);
+    margin: 0 6px 20px;
+    padding: 10px 10px 25px;
+    position: relative;
+    text-decoration: none;
+    z-index: 0;
+    display: inline-block;
+}
+
+ul li a img {
+    /*db+w350+h-auto*/
+    display: block;
+    width: 250px;
+    height: auto;
+}
+
+ul li a::after {
+    /*ct:a*/
+    content: attr(title);
+    /*c#333+fz1.25+pos+t10*/
+    color: #333;
+    font-size: 1.35em;
+    position: relative;
+    top: 15px;
+}
+
+
+/*ESTILOS PARA LAS IMAGENES*/
+
+ul li:nth-child(4n+1)
+/*esto hace un salto cada 4 elementos*/
+
+{
+    /*trs:r*/
+    transform: rotate(4deg)/*esto hace que la imagen rote 4 grados*/
+    ;
+}
+
+ul li:nth-child(4n+3)
+/*esto hace un salto cada 4 elementos*/
+
+{
+    transform: rotate(-24deg);
+    /*esto hace que la imagen rote -24 grados*/
+}
+
+ul li:nth-child(2n+2) {
+    transform: rotate(14deg);
+}
+
+ul li:nth-child(5)
+/*Al elemento 5 especifico*/
+
+{
+    transform: rotate(-8deg);
+}
+
+ul li:nth-child(6)
+/*Al elemento 6 especifico*/
+
+{
+    transform: rotate(2deg);
+}
+
+ul li a:hover {
+    /*Efecto de aumentar la sombra cuando pase el cursor sobre as imagenes*/
+    /*bxsh:rgba*/
+    box-shadow: 0 0 15px 8px rgba(0, 0, 0, .8);
+}
+
+ul li:hover {
+    /*Efecto para volver a la posición original de los elementos li al pasar el cursor*/
+    /*trs:r*/
+    transform: rotate(0deg) scale(1.25);
+    /*scale para que la imagen sea mas grande*/
+    z-index: 10;
+    /*para que vaya hacia el eje z 10px y se sobre-ponga*/
+}
+
+
+/*ESTILOS PARA LOS TEXTOS*/
+
+header,
+h2,
+h3 {
+    color: rgba(255, 255, 255, .4);
+    /*font-size: 20px;*/
+}
+
+h1 {
+    /*fz3em+lh1+m1em-0-0*/
+    font-size: 3em;
+    line-height: 1;
+    margin: 1em 0 0;
+}
+
+h2 {
+    font-size: 2.4em;
+}
+
+h3 {
+    font-size: 1.8em;
+    margin-bottom: 2em;
+}

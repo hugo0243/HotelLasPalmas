@@ -30,6 +30,7 @@ import { TableFilteringComponent } from './table-filtering/table-filtering.compo
 import { registerLocaleData } from '@angular/common';
 import { ContactenosComponent } from './pages/contactenos/contactenos.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
+import { GaleriaComponent } from './pages/galeria/galeria.component';
 
 registerLocaleData(localeES, 'es');
 
@@ -47,6 +48,7 @@ const routes: Routes =[
   {path: 'reservas/page/:page', component: HabitacionesComponent},
   {path: 'contactenos', component: ContactenosComponent},
   {path: 'servicios', component: ServiciosComponent},
+  {path: 'galeria', component: GaleriaComponent},
   {path: '**', pathMatch: 'full', redirectTo: '/home'}
 ];
 
@@ -66,7 +68,8 @@ const routes: Routes =[
     TableFilteringComponent,
     ContactenosComponent,
     ServiciosComponent,
-    TableFilteringComponent
+    TableFilteringComponent,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,
