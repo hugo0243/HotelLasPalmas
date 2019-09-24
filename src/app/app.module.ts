@@ -4,7 +4,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatFormFieldModule,MatTableModule,MatInputModule,MatPaginatorModule} from '@angular/material';
+import {MatFormFieldModule,MatTableModule,MatInputModule,MatPaginatorModule,MatDatepickerModule} from '@angular/material';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import localeES from '@angular/common/locales/es';
 
 
@@ -30,6 +31,7 @@ import { TableFilteringComponent } from './table-filtering/table-filtering.compo
 import { registerLocaleData } from '@angular/common';
 import { ContactenosComponent } from './pages/contactenos/contactenos.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
+import { CalculadorPreciosComponent } from './pages/habitaciones-cliente/calculador-precios/calculador-precios.component';
 
 registerLocaleData(localeES, 'es');
 
@@ -66,7 +68,8 @@ const routes: Routes =[
     TableFilteringComponent,
     ContactenosComponent,
     ServiciosComponent,
-    TableFilteringComponent
+    TableFilteringComponent,
+    CalculadorPreciosComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +81,8 @@ const routes: Routes =[
     MatTableModule,
     MatInputModule,
     MatPaginatorModule,
+    MatDatepickerModule,
+    MatMomentDateModule,
     RouterModule.forRoot(routes)
   ],
   providers: [

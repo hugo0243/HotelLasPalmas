@@ -1,0 +1,25 @@
+<div class="contentedor_calculador">
+    <h2>Calcula Precios</h2>
+    <div class="calculador_fechaEntrada">
+        
+            <input [matDatepicker]="miDatepicker" [(ngModel)]="entrada" name="entrada" placeholder="Fecha Entrada">
+            <mat-datepicker-toggle [for]="miDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #miDatepicker></mat-datepicker>
+         
+    </div>
+    <div class="calculador_fechaSalida">
+            <input [matDatepicker]="myDatepicker" [(ngModel)]="salida" name="salida" placeholder="Fecha Salida">
+            <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker></mat-datepicker>
+    </div>
+    <div class="calculador_cantidadPersonas">
+      
+        <input type="number" placeholder="Cantidad Personas" [(ngModel)]="cantidadPersonas">
+    </div>
+    <button class="calculador_boton" (click)="onCalcular()">
+        Calcular
+    </button>
+    <label for="">
+       $ {{total}}
+    </label>
+</div>

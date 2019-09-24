@@ -31,7 +31,7 @@
 
 .contenedor_habitaciones {
   /*   border: 1px green solid; */
-    margin: 5em auto;
+    margin: 10em auto;
     width: 85%;
     
     /*      height:100vmax; */
@@ -51,17 +51,13 @@
  /*    background-color: blue; */
 /*      border-bottom: 1px solid green; */
 /*  border: 5px green solid; */
-border: 2px rgb(0, 130, 60) solid;
+/* border: 2px rgb(0, 130, 60) solid; */
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
- /*    background-color: white; */
-
+        background-color: whitesmoke;
     margin-bottom: 1.5rem;
-/*     background-color: rgba(0, 0, 0, 0.2); */
-  /*  background-color:rgba(0, 130, 60,0.7); */
-/*     background-color: beige; */
-
+padding: 40px;
 }
 
 
@@ -72,6 +68,11 @@ border: 2px rgb(0, 130, 60) solid;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
+    border-top: 1px solid seagreen;
+    border-bottom: 1px solid seagreen;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
 }
 
 .habitacion_imagenes img{
@@ -85,9 +86,12 @@ h2{
 /*     background-color: red; */
     flex-basis: 100%;
     text-align: center;
-    font-size: 2rem;
-    color: rgb(0, 130, 60);
-    margin-bottom: 33px;
+    font-size: 2.3rem;
+ /*    color: rgb(0, 130, 60); */
+ color: white;
+    margin-bottom: 73px;
+    border-bottom: 1px solid seagreen;
+    background-color: #222222;
 }
 
 
@@ -100,16 +104,29 @@ h2{
 text-transform: uppercase;
 line-height: 1.5rem;
 font-family: sans-serif;
-border-top: 1px green solid;
-border-bottom: 1px green solid;
-margin-bottom:.1rem;
-padding: 15px 10px 0;
-/* padding-top: 15px;
-
+border-top: 1px white solid;
+border-bottom: 1px seagreen solid;
+margin-bottom:1rem;
+padding: 15px 80px 10px 80px;
+/* padding-top: 15px
 padding-bottom: 0; */
 flex-basis: 100%;
-  
-   /*  background-color: red; */
+  color: black;
+  font-weight: 600;
+    background-color:white; 
+    margin-top: 2em;
+    border-top: 1px solid seagreen;
+}
+
+
+ul {
+    /* color: white; */
+   /*  background-color: white; */
+   background-color: white;
+    height: 90%;
+    width: 350px;
+    align-self: center;
+    flex: 2;
 }
 
 .habitacion_precios {
@@ -117,4 +134,17 @@ flex-basis: 100%;
  flex-basis: 20%; */
     /*        width: 70px; */
 /*        background-color: blueviolet; */
+flex: 1;
+
+text-align: center;
+}
+
+.habitacion_precios p {
+    width: 70%;
+    margin: 0 auto;
+    background-color:seagreen;
+    line-height: 4em;
+    color: white;
+    font-weight: 600;
+    font-size: 2em;
 }

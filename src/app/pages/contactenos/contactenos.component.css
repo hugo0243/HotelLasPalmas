@@ -28,3 +28,87 @@
     /*       background-color: red; */
      letter-spacing: 3px; 
 } 
+
+
+.contenedor {
+    width: 80%;
+    background-color: blue;
+    margin: 9em auto;
+    display: flex;
+    min-height: 35vw; 
+    flex-wrap: wrap;
+}
+
+.contenedor .tarjeta {
+    flex-basis: 50%;
+}
+
+.contenedor .formulario {
+    background-color: seagreen;
+    flex-basis: 50%;
+ padding: 40px; 
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario form {
+   /*  background-color: red; */
+   flex-basis: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+
+.form_element{
+    margin-bottom: 1em;
+    border: none;
+    height: 2.1rem;
+}
+
+form input {
+    padding-left: 5px;
+}
+
+.form_element:first-child input {
+    width: 49%;
+    border: none;
+    height: 2.1rem;
+}
+
+.form_element:first-child input:nth-child(2) {
+ 
+    float: right;
+}
+
+form textarea {
+    height: 9rem;
+    padding-left: 5px;
+}
+
+.form_element:last-child {
+height: 2.5em;
+ background-color: #222222;
+ color: white;
+}
+
+@media (max-width: 768px) {
+
+    .contenedor {
+        width: 100%;
+    }
+
+  .tarjeta {
+      height: 400px;
+        flex: 1;
+        order: 2;
+    } 
+
+    .contenedor .formulario {
+    /*     width: 100%; */
+        flex: 1;
+        order: 1;
+    }
+
+}

@@ -72,7 +72,7 @@ justify-content: center;
 
 main {
     width: 90%;
-    margin: 0 auto;
+    margin: 7em auto;
 }
 
 
@@ -80,6 +80,7 @@ main {
     display: flex;
     min-height: 70vh;
     flex-wrap: wrap;
+    background-color: whitesmoke;
 }
 
 main article {

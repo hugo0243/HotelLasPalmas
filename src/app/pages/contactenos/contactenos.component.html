@@ -1,6 +1,31 @@
 <header class="header_fondo">
-        <div class="header">
-            <h1>Contáctenos</h1>
-        </div>
-    </header>
-    
+    <div class="header">
+        <h1>Contáctenos</h1>
+    </div>
+</header>
+
+<main class="contenedor">
+
+    <div id="mapa" class="tarjeta">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3399.9380088809085!2d-73.93920099999998!3d4.473129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbd5a32d108cb5ca4!2sHotel+Campestre+Las+Palmas+-+Ubaque!5e1!3m2!1ses!2sco!4v1565846295904!5m2!1ses!2sco"
+            width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+
+    <div class="formulario">
+        <form method="post">
+            <div class="form_element">
+                <input type="text" name="nombre" placeholder="Nombre" required="required">
+                <input type="email" name="email" placeholder="Email" required="required">
+            </div>
+            <input class="form_element" type="text" name="asunto" placeholder="Asunto" required="required">
+            <input class="form_element" type="tel" name="telefono" placeholder="Teléfono de Contacto"
+                pattern="[0-9]{3}\s[0-9]{3}\s[0-9]{4}$"
+                title="Debe ser un número teléfonico con esta estructura XXX XXX XXXX, teniendo en cuenta los espacios"
+                required="required">
+            <textarea class="form_element" name="mensaje" cols="30" rows="10" placeholder="Mensaje"
+                required="required"></textarea>
+            <input class="form_element" type="submit" value="Enviar Datos">
+        </form>
+    </div>
+</main>

@@ -1,0 +1,32 @@
+h2 {
+    color: white;
+}
+
+.contentedor_calculador {
+ /*    background-color: whitesmoke; */
+ background-color: seagreen;
+    display: flex;
+    margin-bottom: 2em;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+input {
+    padding-left: 5px;
+}
+
+.calculador_boton {
+    background-color: #222222;
+    color: white;
+    border: none;
+    height: 50px;
+    width: 100px;
+    font-size: 1.3em;
+}
+
+label {
+    color: white;
+    font-size: 1.2em;
+}
