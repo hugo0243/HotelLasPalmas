@@ -32,6 +32,7 @@ import { registerLocaleData } from '@angular/common';
 import { ContactenosComponent } from './pages/contactenos/contactenos.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { CalculadorPreciosComponent } from './pages/habitaciones-cliente/calculador-precios/calculador-precios.component';
+import { GaleriaComponent } from './pages/galeria/galeria.component';
 
 registerLocaleData(localeES, 'es');
 
@@ -49,6 +50,7 @@ const routes: Routes =[
   {path: 'reservas/page/:page', component: HabitacionesComponent},
   {path: 'contactenos', component: ContactenosComponent},
   {path: 'servicios', component: ServiciosComponent},
+  {path: 'galeria', component: GaleriaComponent},
   {path: '**', pathMatch: 'full', redirectTo: '/home'}
 ];
 
@@ -69,7 +71,8 @@ const routes: Routes =[
     ContactenosComponent,
     ServiciosComponent,
     TableFilteringComponent,
-    CalculadorPreciosComponent
+    CalculadorPreciosComponent,
+    GaleriaComponent
   ],
   imports: [
     BrowserModule,
